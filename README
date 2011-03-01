@@ -1,0 +1,13 @@
+A basic template for Rails 3 new projects. It contains the following gems:
+
+"devise",
+"cancan",
+"will_paginate",
+"jquery-rails",
+"rails3-generators",
+"rspec-rails",
+"steak",
+"capybara",
+"factory_girl_rails"
+
+It also generates a default user with username "admin" and password "password" (!!!) for Devise authentication.
