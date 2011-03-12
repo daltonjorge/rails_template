@@ -8,9 +8,10 @@ RUBY
 
 gem "devise"
 gem "cancan"
-gem "will_paginate", "~> 3.0.pre2"
+gem "responders"
 gem "jquery-rails"
 gem "rails3-generators"
+gem "will_paginate", "~> 3.0.pre2"
 gem 'rspec-rails', :group => [:development, :test]
 gem 'steak', :group => [:development, :test]
 gem 'capybara', :group => [:development, :test]
