@@ -8,19 +8,14 @@ RUBY
 
 gem "devise"
 gem "cancan"
-gem "responders"
 gem "jquery-rails"
-gem "rails3-generators"
 gem "will_paginate", "~> 3.0.pre2"
 gem 'rspec-rails', :group => [:development, :test]
-gem 'steak', :group => [:development, :test]
-gem 'capybara', :group => [:development, :test]
-gem 'factory_girl_rails', :group => [:development, :test]
+gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git', :group => [:development, :test]
 
 run "bundle install"
 
 generate "rspec:install"
-generate "steak:install"
 generate "devise:install"
 generate 'devise user username:string'
 generate "devise:views"
@@ -46,16 +41,6 @@ append_file "db/seeds.rb", %(\nUser.create(:username => 'admin', :email => 'admi
 rake "db:seed"
 
 gsub_file "config/initializers/devise.rb", /# config.authentication_keys = \[ :email \]/, 'config.authentication_keys = [ :username ]'
-
-inject_into_file "config/application.rb", :after => "[:password]\n" do
-<<-RUBY
-
-    config.generators do |g|
-      g.test_framework  :rspec, :fixture => true
-      g.fixture_replacement :factory_girl, :dir=>"spec/factories"
-    end
-RUBY
-end
 
 generate :controller, "home", "index"
 route %(root :to => "home#index")
